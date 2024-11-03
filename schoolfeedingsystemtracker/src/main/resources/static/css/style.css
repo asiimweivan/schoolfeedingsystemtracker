@@ -1,0 +1,221 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef; /* Light background for a softer look */
+    margin: 0;
+    padding: 0;
+    color: #495057; /* Dark gray text for better readability */
+}
+
+/* Container for the page content */
+.container {
+    width: 90%; /* Slightly wider container */
+    max-width: 800px; /* Maximum width to prevent it from being too wide */
+    margin: 40px auto; /* Centering with space above */
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    border-radius: 12px; /* Softer corners */
+}
+
+/* Header Styles */
+h1 {
+    text-align: center;
+    color: #007BFF; /* Blue color for headers */
+    margin-bottom: 20px; /* Space below header */
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 15px; /* Increased padding for comfort */
+    text-align: left;
+    border-bottom: 2px solid #dee2e6; /* Thicker border for better separation */
+}
+
+th {
+    background-color: #007BFF; /* Blue background for headers */
+    color: white;
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px; /* Increased padding for a more substantial feel */
+    border-radius: 5px; /* Softer corners for a professional look */
+    text-decoration: none;
+    color: white;
+    font-size: 14px; /* Slightly larger font size for readability */
+    font-weight: 500; /* Medium weight for a modern touch */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth background and transform transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Flexbox for action buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+}
+
+/* Create Button */
+.btn.create {
+    background-color: #007BFF; /* Blue for create button */
+}
+
+.btn.create:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Edit Button */
+.btn.edit {
+    background-color: #28a745; /* Green for edit */
+}
+
+.btn.edit:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Delete Button */
+.btn.delete {
+    background-color: #dc3545; /* Red for delete */
+}
+
+.btn.delete:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Action Links */
+a {
+    color: #007BFF; /* Blue links */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Form Styles */
+form {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px; /* More space above labels */
+    font-weight: bold; /* Bold labels for clarity */
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px; /* Comfortable padding */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s; /* Smooth border transition */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles for Submit */
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Message Styles */
+.message {
+    color: green;
+    text-align: center;
+    margin: 15px 0;
+    font-weight: bold; /* Bold message for emphasis */
+}
+
+.error {
+    color: #dc3545; /* Red for error messages */
+    text-align: center;
+    margin: 15px 0;
+    font-weight: bold; /* Bold error for visibility */
+}
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth background and color transitions */
+}
+
+.pagination a:hover {
+    background-color: #007BFF;
+    color: white; /* Blue background and white text on hover */
+}
+
+.pagination a.active {
+    background-color: #4CAF50; /* Green background for the active page */
+    color: white;
+    border: 1px solid #4CAF50; /* Green border to match background */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /* Adjust width for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Smaller header for mobile */
+    }
+
+    label {
+        margin: 10px 0 3px; /* Less space on mobile */
+    }
+
+    input[type="submit"],
+    .btn {
+        width: 100%; /* Full width buttons on mobile */
+        padding: 15px; /* Comfortable padding on buttons */
+    }
+
+    .pagination li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

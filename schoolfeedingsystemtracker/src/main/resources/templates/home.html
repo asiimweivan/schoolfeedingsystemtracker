@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+    <style>
+        /* General Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Icon Style */
+.lang-icon {
+    cursor: pointer;
+    font-size: 24px; /* Adjust the icon size */
+    transition: transform 0.3s ease;
+}
+
+/* Show the dropdown icon when hovering */
+.dropdown:hover .lang-icon {
+    transform: scale(1.1); /* Slightly enlarge the icon */
+}
+
+/* Dropdown Content Styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff; /* Background color of the dropdown */
+    min-width: 160px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    z-index: 1;
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Dropdown Item Styles */
+.dropdown-content a {
+    color: #333; /* Text color */
+    padding: 12px 16px; /* Padding for each item */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Block display for full width */
+    transition: background-color 0.2s; /* Transition for hover effect */
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+/* Show dropdown when active */
+.dropdown-content.show {
+    display: block;
+}
+
+/* Hide dropdown content when clicking outside */
+.show {
+    display: block;
+}
+
+    </style>
+    <title th:text="#{title}">School Feeding Tracker</title>
+</head>
+<body>
+<nav>
+    <div class="nav__header">
+        <div class="nav__logo">
+            <a th:href="@{/}" class="logo">School Feeding</a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+        </div>
+    </div>
+    <ul class="nav__links" id="nav-links">
+        <li><a th:href="@{/home}" th:text="#{nav.home}">Home</a></li>
+        <li><a th:href="@{/register}" th:text="#{nav.signup}">Sign Up</a></li>
+        <li><a th:href="@{/login}" th:text="#{nav.login}">Login</a></li>
+        <!-- Language Switcher -->
+        <li class="dropdown">
+            <span class="lang-icon ri-global-line" onclick="toggleDropdown()"></span>
+            <div class="dropdown-content" id="langDropdown">
+                <a href="#" onclick="changeLanguage('en')">English</a>
+                <a href="#" onclick="changeLanguage('fr')">Français</a>
+                <a href="#" onclick="changeLanguage('rw')">Kinyarwanda</a>
+            </div>
+        </li>
+    </ul>
+    <div class="nav__search" id="nav-search">
+        <input type="text" th:placeholder="#{nav.search.placeholder}">
+        <span><i class="ri-search-2-line"></i></span>
+    </div>
+</nav>
+
+<header class="section__container header__container" id="home">
+    <div class="header__content">
+        <h1 th:text="#{header.welcome}">Welcome to the School Feeding Tracker</h1>
+        <h3 th:text="#{header.tagline}">Manage student meal records and track food stock easily and efficiently.</h3>
+        <div class="cta-buttons">
+            <a th:href="@{/register}" class="btn" th:text="#{header.signup.button}">Sign Up</a>
+            <a th:href="@{/login}" class="btn" th:text="#{header.login.button}">Login</a>
+        </div>
+    </div>
+</header>
+
+<!-- About Us Section with Advertisement Sidebars -->
+<section class="about-us" id="about-us">
+    <div class="section__container">
+        <div class="content">
+            <h2 th:text="#{about.us.title}">About Us</h2>
+            <p th:text="#{about.us.description}">
+                At School Feeding Tracker, we are passionate about improving the management and efficiency of school feeding programs across various educational institutions...
+            </p>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h2 th:text="#{mission.title}">Our Mission</h2>
+                    <p th:text="#{mission.description}">
+                        Our mission is to empower educational institutions by providing a robust, reliable, and user-friendly system for managing school feeding programs...
+                    </p>
+                </div>
+                <div class="vision">
+                    <h2 th:text="#{vision.title}">Our Vision</h2>
+                    <p th:text="#{vision.description}">
+                        Our vision is to become the leading global platform for school feeding management, enhancing the quality of school meal programs...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Section -->
+<section class="image-section">
+    <div class="image-grid">
+        <div class="image-box">
+            <img th:src="@{/images/Photo4.jpg}" alt="Track Meals">
+            <div class="image-overlay">
+                <h3 th:text="#{image.track.meals}">Track Student Meals</h3>
+                <p class="explanation" th:text="#{image.track.meals.description}">Efficiently monitor and record student meal preferences.</p>
+            </div>
+        </div>
+        <div class="image-box">
+            <img th:src="@{/images/Photo6.jpg}" alt="Manage Stock">
+            <div class="image-overlay">
+                <h3 th:text="#{image.manage.stock}">Manage Food Stock</h3>
+                <p class="explanation" th:text="#{image.manage.stock.description}">Keep track of food supplies to ensure availability.</p>
+            </div>
+        </div>
+        <div class="image-box">
+            <img th:src="@{/images/Photo7.jpg}" alt="Weekly Menu">
+            <div class="image-overlay">
+                <h3 th:text="#{image.weekly.menu}">View Weekly Menu</h3>
+                <p class="explanation" th:text="#{image.weekly.menu.description}">Access and plan weekly meal schedules for students.</p>
+            </div>
+        </div>
+        <div class="image-box">
+            <img th:src="@{/images/Photo5.jpg}" alt="Reporting">
+            <div class="image-overlay">
+                <h3 th:text="#{image.reporting}">Reporting</h3>
+                <p class="explanation" th:text="#{image.reporting.description}">Generate detailed reports for better decision-making.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="section__container footer__container">
+        <div class="footer__col">
+            <div class="footer__logo">
+                <a th:href="@{/}" class="logo">School Feeding</a>
+            </div>
+            <p th:text="#{footer.description}">Efficient management of student meal records and stock tracking for schools.</p>
+            <ul class="footer__socials">
+                <li><a href="https://www.facebook.com/"><i class="ri-facebook-fill"></i></a></li>
+                <li><a href="https://x.com/"><i class="ri-twitter-fill"></i></a></li>
+                <li><a href="https://www.linkedin.com/"><i class="ri-linkedin-fill"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.quick.links}">Quick Links</h4>
+            <ul class="footer__links">
+                <li><a th:href="@{/home}" th:text="#{nav.home}">Home</a></li>
+                <li><a th:href="@{/register}" th:text="#{nav.signup}">Sign Up</a></li>
+                <li><a th:href="@{/login}" th:text="#{nav.login}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.resources}">Resources</h4>
+            <ul class="footer__links">
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.contacts}">Contacts</h4>
+            <ul class="footer__contacts">
+                <li th:text="#{footer.address}">(Address :) Kigali, Rwanda</li>
+                <li th:text="#{footer.phone}">(Tel :) +250 785004175</li>
+                <li th:text="#{footer.email}">(Email :) info@schoolfeedingtracker.rw</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__copyright" th:text="#{footer.copyright}">Copyright © 2024 Asiimwe Ivan. All rights reserved.</div>
+</footer>
+
+<script>
+    function toggleDropdown() {
+     var dropdown = document.getElementById("langDropdown");
+     dropdown.classList.toggle("show");
+     var isExpanded = dropdown.classList.contains("show");
+     // Update aria-expanded attribute for accessibility
+     document.querySelector('.lang-icon').setAttribute('aria-expanded', isExpanded);
+ }
+
+ // Close the dropdown if the user clicks outside of it
+ window.onclick = function(event) {
+     if (!event.target.matches('.lang-icon')) {
+         var dropdowns = document.getElementsByClassName("dropdown-content");
+         for (var i = 0; i < dropdowns.length; i++) {
+             var openDropdown = dropdowns[i];
+             if (openDropdown.classList.contains('show')) {
+                 openDropdown.classList.remove('show');
+             }
+         }
+     }
+ }
+
+ // Change language function
+ function changeLanguage(lang) {
+     console.log("Language changed to: " + lang);
+     // Implement your language changing logic here
+ }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{title}">Register - School Feeding Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+</head>
+<body class="register-page">
+<header>
+    <nav>
+        <h1 class="nav__logo"><a href="/" class="logo">School Feeding</a></h1>
+        <ul class="nav__links">
+            <li><a th:href="@{/home.html}">Home</a></li>
+            <li><a th:href="@{/register}">Signup</a></li>
+            <li><a th:href="@{/login}">login</a></li>
+        </ul>
+
+        <div class="nav__search" id="nav-search">
+            <input type="text" th:placeholder="#{nav.search.placeholder}">
+            <span><i class="ri-search-2-line"></i></span>
+        </div>
+    </nav>
+</header>
+
+<section class="form-container">
+    <h2 th:text="#{form.title}">Register</h2>
+    <form onsubmit="return validatePasswords()" th:action="@{/register}" method="post" th:object="${user}">
+
+        <div class="input-group">
+            <label for="fullname" th:text="#{form.fullname.label}">Full Name:</label>
+            <input type="text" id="fullname" th:field="*{fullname}" required>
+        </div>
+        <div class="input-group">
+            <label for="username" th:text="#{form.username.label}">Username:</label>
+            <input type="text" id="username" th:field="*{username}" required>
+        </div>
+        <div class="input-group">
+            <label for="email" th:text="#{form.email.label}">Email:</label>
+            <input type="email" id="email" th:field="*{email}" required>
+        </div>
+        <div class="input-group password-container">
+            <label for="password" th:text="#{form.password.label}">Password:</label>
+            <input type="password" id="password" th:field="*{password}" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility('password')">
+                <i class="far fa-eye" id="togglePasswordIcon1"></i>
+            </span>
+        </div>
+        <div class="input-group password-container">
+            <label for="confirmPassword" th:text="#{form.confirmPassword.label}">Confirm Password:</label>
+            <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility('confirmPassword')">
+                <i class="far fa-eye" id="togglePasswordIcon2"></i>
+            </span>
+        </div>
+        <div id="passwordError" style="color:red; display:none;" th:text="#{form.password.error}"></div>
+        <button type="submit" class="login-btn" th:text="#{form.register.button}">Register</button>
+    </form>
+    <div th:if="${error}" th:text="${error}" style="color:red;"></div>
+
+    <!-- Social Media Sign-up Section -->
+    <div class="social-signup">
+        <p th:text="#{social.signup}">Or register with:</p>
+        <div class="social-buttons">
+            <a href="YOUR_GOOGLE_OAUTH_LINK" class="google-btn">
+                <i class="fab fa-google"></i> Google
+            </a>
+            <a href="YOUR_FACEBOOK_OAUTH_LINK" class="facebook-btn">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="YOUR_INSTAGRAM_OAUTH_LINK" class="instagram-btn">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+    </div>
+
+    <div class="account-exists">
+        <p th:text="#{account.exists}">Already have an account? <a th:href="@{/login}">Login</a></p>
+    </div>
+</section>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="section__container footer__container">
+        <div class="footer__col">
+            <div class="footer__logo">
+                <a th:href="@{/}" class="logo">School Feeding</a>
+            </div>
+            <p th:text="#{footer.description}">Efficient management of student meal records and stock tracking for schools.</p>
+            <ul class="footer__socials">
+                <li><a href="https://www.facebook.com/"><i class="ri-facebook-fill"></i></a></li>
+                <li><a href="https://x.com/"><i class="ri-twitter-fill"></i></a></li>
+                <li><a href="https://www.linkedin.com/"><i class="ri-linkedin-fill"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.quick.links}">Quick Links</h4>
+            <ul class="footer__links">
+                <li><a th:href="@{/home}" th:text="#{nav.home}">Home</a></li>
+                <li><a th:href="@{/register}" th:text="#{nav.signup}">Sign Up</a></li>
+                <li><a th:href="@{/login}" th:text="#{nav.login}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.resources}">Resources</h4>
+            <ul class="footer__links">
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.contacts}">Contacts</h4>
+            <ul class="footer__contacts">
+                <li th:text="#{footer.address}">(Address :) Kigali, Rwanda</li>
+                <li th:text="#{footer.phone}">(Tel :) +250 785004175</li>
+                <li th:text="#{footer.email}">(Email :) info@schoolfeedingtracker.rw</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__copyright" th:text="#{footer.copyright}">Copyright © 2024 Asiimwe Ivan. All rights reserved.</div>
+</footer>
+
+<script>
+    function togglePasswordVisibility(id) {
+        const passwordField = document.getElementById(id);
+        const icon = document.getElementById(`togglePasswordIcon${id === 'password' ? '1' : '2'}`);
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            icon.classList.remove("far", "fa-eye");
+            icon.classList.add("fas", "fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            icon.classList.remove("fas", "fa-eye-slash");
+            icon.classList.add("far", "fa-eye");
+        }
+    }
+
+    function validatePasswords() {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const errorDiv = document.getElementById('passwordError');
+
+        if (password !== confirmPassword) {
+            errorDiv.style.display = 'block';
+            return false; // Prevent form submission
+        } else {
+            errorDiv.style.display = 'none';
+            return true; // Allow form submission
+        }
+    }
+</script>
+</body>
+</html>

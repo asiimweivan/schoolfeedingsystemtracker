@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="rw" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{login.title}">Kwinjira</title>
+    <!-- Include your styles -->
+</head>
+<body>
+<h1 th:text="#{login.title}">Urupapuro rwo Kwinjira</h1>
+
+<form action="/login" method="post">
+    <label for="username" th:text="#{login.username}">Izina ry' ukoresha :</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password" th:text="#{login.password}">Ijambo ry'ibanga :</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit" th:text="#{login.submit}">Injira</button>
+</form>
+
+<!-- Language Selection Form -->
+<form method="get" th:action="@{/login}" class="language-select-form">
+    <select name="lang" onchange="this.form.submit()">
+        <option value="en" th:selected="${#locale.language == 'en'}">English</option>
+        <option value="fr" th:selected="${#locale.language == 'fr'}">Français</option>
+        <option value="rw" th:selected="${#locale.language == 'rw'}">Kinyarwanda</option>
+    </select>
+</form>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create User</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="nav__header">
+            <div class="nav__logo">
+                <a th:href="@{/}" class="logo">School Feeding</a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+        <ul class="nav__links">
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/register}">Sign Up</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+        </ul>
+        <div class="nav__search" id="nav-search">
+            <input type="text" placeholder="Search">
+            <span><i class="ri-search-2-line"></i></span>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <h1>Create New User</h1>
+
+    <form action="#" th:action="@{/admin/users}" th:object="${user}" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" th:field="*{fullname}" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" th:field="*{username}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" required>
+
+        <label for="role">Role:</label>
+        <input type="text" id="role" th:field="*{role}" required>
+
+        <input type="submit" value="Create User">
+    </form>
+
+
+    <a href="/admin" class="button">Back to Admin</a>
+</div>
+
+<footer class="footer">
+    <div class="section__container footer__container">
+        <div class="footer__col">
+            <div class="footer__logo">
+                <a href="/" class="logo">School Feeding</a>
+            </div>
+            <p>Efficient management of student meal records and stock tracking for schools.</p>
+            <ul class="footer__socials">
+                <li><a href="https://www.facebook.com/"><i class="ri-facebook-fill"></i></a></li>
+                <li><a href="https://x.com/"><i class="ri-twitter-fill"></i></a></li>
+                <li><a href="https://www.linkedin.com/"><i class="ri-linkedin-fill"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4>Quick Links</h4>
+            <ul class="footer__links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/register">Sign Up</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4>Resources</h4>
+            <ul class="footer__links">
+                <li><a href="tel:+250785004175">(Tel :) +250 785004175</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4>Contacts</h4>
+            <ul class="footer__links">
+                <li><a href="#">(Address :) Kigali, Rwanda</a></li>
+                <li><a href="tel:+250785004175"><span>(Tel :)</span> +250 785004175</a></li>
+                <li><a href="mailto:asiimweiva2255@gmail.com"><span>(Email :)</span> asiimweiva2255@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__bar">
+        Copyright © 2024 Asiimwe Ivan. All rights reserved.
+    </div>
+</footer>
+</body>
+</html>

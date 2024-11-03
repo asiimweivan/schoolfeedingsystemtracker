@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- Include your styles -->
+</head>
+<body>
+<h1 th:text="#{login.title}">Login Page</h1> <!-- This text will be replaced by the localized message -->
+<form action="/login" method="post">
+    <label for="username" th:text="#{login.username}">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password" th:text="#{login.password}">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit" th:text="#{login.submit}">Login</button>
+</form>
+
+<!-- Language Selection Form -->
+<form method="get" th:action="@{/login}" class="language-select-form">
+    <select name="lang" onchange="this.form.submit()">
+        <option value="en" th:selected="${#locale.language == 'en'}">English</option>
+        <option value="fr" th:selected="${#locale.language == 'fr'}">French</option>
+        <option value="rw" th:selected="${#locale.language == 'rw'}">Kinyarwanda</option>
+    </select>
+</form>
+</body>
+</html>

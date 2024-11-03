@@ -1,0 +1,674 @@
+/* General Styles for All Pages */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%; /* To ensure full-page background */
+}
+
+
+
+/* Navbar Styles */
+nav {
+    background-color: rgb(32, 25, 146);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.nav__logo .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav__menu__btn i {
+    font-size: 24px;
+    color: white;
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav__links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav__links li a:hover {
+    color: #00A1FF;
+}
+
+/* Search Bar Styles */
+.nav__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Aligns the search bar to the right */
+    margin-right: 20px; /* Space from other navbar elements */
+}
+
+.nav__search input {
+    padding: 10px 40px 10px 15px; /* Add space for the icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px; /* Adjust width as necessary */
+    transition: border-color 0.3s ease;
+}
+
+.nav__search input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.nav__search .search-icon {
+    position: absolute;
+    right: 10px; /* Position the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #007bff; /* Color of the icon */
+}
+
+.nav__search .search-icon:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+/* Background Styles for Pages */
+body.login-page {
+    background-image: url('/images/Photo13.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    filter: brightness(0.8); /* Dim the background image slightly */
+}
+
+body.register-page {
+    background-image: url('/images/Photo12.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.header__container {
+     background-image: url('/images/Photo11.jpg');
+     background-size: cover;
+     background-position: center;
+     height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+ }
+header__container {
+    background-image: url('/images/Photo11.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Form Container Styles */
+.form-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Form Input Group */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Password Visibility Toggle */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 90%;
+    padding-right: 50px;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.password-container .toggle-password:hover {
+    color: #007bff;
+}
+
+/* Form Options Styles */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.remember-container {
+    display: flex;
+    align-items: center;
+}
+
+.remember-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.forgot-password {
+    text-align: right;
+}
+
+/* Button Styles */
+.login-btn, .register-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background-color: #0056b3;
+    border: 2px solid #0056b3;
+}
+
+/* Social Login Styles */
+.social-login {
+    margin-top: 20px; /* Space above social login */
+}
+
+.social-buttons {
+    display: flex; /* Align buttons in a row */
+    justify-content: center; /* Center buttons */
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px;
+}
+
+.social-buttons a {
+    display: flex;
+    align-items: center; /* Center icon and text */
+    padding: 10px 15px; /* Padding around buttons */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Text color */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.google-btn {
+    background-color: #db4437; /* Google color */
+}
+
+.facebook-btn {
+    background-color: #3b5998; /* Facebook color */
+}
+
+.instagram-btn {
+    background-color: #e1306c; /* Instagram color */
+}
+
+.social-buttons a:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+
+/* Image Section */
+.image-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.image-grid {
+    display: flex;  /* Changed to flex to align items horizontally */
+    gap: 20px;  /* Gap between images */
+    justify-content: center; /* Center the images */
+    align-items: stretch; /* Ensure images have the same height */
+    margin: 0 auto;
+    max-width: 1200px; /* Constrain the width for a centered layout */
+}
+
+.image-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    flex: 1; /* Flex property to ensure items are evenly spaced */
+    max-width: 300px; /* Set a max-width for each image box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    text-align: center;
+}
+
+.image-box:hover img {
+    transform: scale(1.1); /* Zoom the image on hover */
+}
+
+.image-box:hover .image-overlay {
+    opacity: 1;
+    transform: translateY(0); /* Slide in overlay on hover */
+}
+
+.image-overlay h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.image-overlay p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .image-grid {
+        flex-direction: column; /* Stack images vertically on small screens */
+    }
+
+    .image-box {
+        max-width: 100%; /* Make images take full width on small screens */
+    }
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #170fab;
+    color: white;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.footer__col {
+    flex: 1;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.footer__logo .logo {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.footer__links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__links li {
+    margin-bottom: 10px;
+}
+
+.footer__links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer__links li a:hover {
+    color: #00A1FF;
+}
+
+.footer__socials {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer__socials li a {
+    color: white;
+    font-size: 20px;
+}
+
+.footer__bar {
+    text-align: center;
+    background-color: #222;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        width: 95%;
+    }
+
+    .footer__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__col {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer__socials {
+        justify-content: center;
+    }
+
+    .mission-vision {
+        flex-direction: column;
+    }
+
+    .mission, .vision {
+        max-width: 100%;
+    }
+}
+
+/* Header Content */
+.header__content {
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header__content h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.header__content p h3 {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* CTA Button Styles */
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cta-buttons .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+/* About Us Section */
+.about-us {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.about-us h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Mission and Vision Sections */
+.mission-vision {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.mission, .vision {
+    width: 48%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.mission h2, .vision h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.mission p, .vision p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* Search Form Container */
+.search-form {
+    display: flex; /* Align input and button horizontally */
+    justify-content: center; /* Center the form */
+    margin: 10px 0; /* Reduce space above and below the form */
+    width: 100%;
+    max-width: 400px; /* Set a smaller maximum width */
+    margin: 10px auto; /* Center the form on the page */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 4px; /* Slightly rounded corners */
+    background-color: #ffffff; /* White background */
+    padding: 5px; /* Inner padding */
+}
+
+/* Input Field Styles */
+.search-form input[type="text"] {
+    flex-grow: 1; /* Allow input to take up available space */
+    padding: 8px 12px; /* Adjust padding for compactness */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px 0 0 4px; /* Rounded left side */
+    font-size: 14px; /* Slightly smaller font size */
+    color: #495057; /* Dark text color */
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+.search-form input[type="text"]::placeholder {
+    color: #888888; /* Light gray placeholder text */
+}
+
+/* Button Styles */
+.search-form .btn.search {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 8px 12px; /* Adjust padding for compactness */
+    border-radius: 0 4px 4px 0; /* Rounded right side */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Match font size */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth background and transform transition */
+}
+
+.search-form .btn.search:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale-up on hover */
+}
+
+/* Focused Input Style */
+.search-form input[type="text"]:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Mobile Friendly */
+@media (max-width: 600px) {
+    .search-form {
+        max-width: 90%; /* Adjust width for small screens */
+    }
+
+/* General Layout */
+.section__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Left Sidebar */
+.left-sidebar, .right-sidebar {
+    width: 15%;
+    position: relative;
+    margin: 10px;
+}
+
+/* Main Content Area */
+.content {
+    width: 70%;
+    text-align: justify;
+}
+
+/* Sidebar Advertisement Styles */
+.ad-slide {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ad-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.ad-slide p {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Animation for rotating advertisements */
+@keyframes slideY {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide other slides */
+.ad-slide:not(.active) {
+    display: none;
+}
+
+}
+/* General style for form labels */
+form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* General style for all input fields */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Style for the submit button */
+form input[type="submit"] {
+    background-color: #4CAF50; /* Primary color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049; /* Hover color */
+}
+

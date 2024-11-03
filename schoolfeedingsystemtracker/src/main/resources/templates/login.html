@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title th:text="#{nav.login}">Login - School Feeding Tracker</title>
+</head>
+<body class="login-page">
+<header>
+    <nav>
+        <div class="nav__header">
+            <div class="nav__logo">
+                <a th:href="@{/}" class="logo">School Feeding</a>
+            </div>
+            <div class="nav__menu__btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+        <ul class="nav__links">
+            <li><a th:href="@{/home}" th:text="#{nav.home}">Home</a></li>
+            <li><a th:href="@{/register}" th:text="#{nav.signup}">Sign Up</a></li>
+            <li><a th:href="@{/login}" th:text="#{nav.login}">Login</a></li>
+        </ul>
+        <div class="nav__search" id="nav-search">
+            <input type="text" placeholder="Search">
+            <span><i class="ri-search-2-line"></i></span>
+        </div>
+    </nav>
+</header>
+
+<section class="form-container login-page">
+    <h1 th:text="#{form.welcome}">Welcome Again</h1>
+    <h2 th:text="#{form.login}">Login</h2>
+    <form th:action="@{/login}" method="post">
+        <div class="input-group">
+            <label for="username" th:text="#{form.username}">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group password-container">
+            <label for="password" th:text="#{form.password}">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility('password')">
+                <i class="fas fa-eye" id="togglePasswordIcon1"></i>
+            </span>
+        </div>
+        <p><a th:href="@{/forgot-password}" th:text="#{form.forgotPassword}">Forgot your password?</a></p>
+        <button type="submit" class="login-btn" th:text="#{form.loginButton}">Login</button>
+    </form>
+
+    <!-- Social Media Login Section -->
+    <div class="social-login">
+        <p th:text="#{social.loginWith}">Or login with:</p>
+        <div class="social-buttons">
+            <a href="YOUR_GOOGLE_OAUTH_LINK" class="google-btn">
+                <i class="fab fa-google"></i> <span th:text="#{social.google}">Google</span>
+            </a>
+            <a href="YOUR_FACEBOOK_OAUTH_LINK" class="facebook-btn">
+                <i class="fab fa-facebook-f"></i> <span th:text="#{social.facebook}">Facebook</span>
+            </a>
+            <a href="YOUR_INSTAGRAM_OAUTH_LINK" class="instagram-btn">
+                <i class="fab fa-instagram"></i> <span th:text="#{social.instagram}">Instagram</span>
+            </a>
+        </div>
+        <div class="account-exists">
+            <p th:text="#{account.exists}">Don't Have an Account? <a href="/register" th:text="#{account.signup}">Sign Up</a></p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="section__container footer__container">
+        <div class="footer__col">
+            <div class="footer__logo">
+                <a href="/" class="logo">School Feeding</a>
+            </div>
+            <p>Efficient management of student meal records and stock tracking for schools.</p>
+            <ul class="footer__socials">
+                <li><a href="https://www.facebook.com/"><i class="ri-facebook-fill"></i></a></li>
+                <li><a href="https://x.com/"><i class="ri-twitter-fill"></i></a></li>
+                <li><a href="https://www.linkedin.com/"><i class="ri-linkedin-fill"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.quickLinks}">Quick Links</h4>
+            <ul class="footer__links">
+                <li><a th:href="@{/home}" th:text="#{nav.home}">Home</a></li>
+                <li><a th:href="@{/register}" th:text="#{nav.signup}">Sign Up</a></li>
+                <li><a th:href="@{/login}" th:text="#{nav.login}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.resources}">Resources</h4>
+            <ul class="footer__links">
+                <li><a href="tel:+250785004175" th:text="#{footer.phone}">(Tel :) +250 785004175</a></li>
+            </ul>
+        </div>
+        <div class="footer__col">
+            <h4 th:text="#{footer.contacts}">Contacts</h4>
+            <ul class="footer__links">
+                <li><a href="#" th:text="#{footer.address}">(Address :) Kigali, Rwanda</a></li>
+                <li><a href="tel:+250785004175"><span th:text="#{footer.phone}">(Tel :)</span> +250 785004175</a></li>
+                <li><a href="mailto:asiimweiva2255@gmail.com"><span th:text="#{footer.email}">(Email :)</span> asiimweiva2255@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <small th:text="#{footer.copyright}">Copyright © 2024 Asiimwe Ivan. All rights reserved.</small>
+    </div>
+</footer>
+<script>
+    function togglePasswordVisibility(id) {
+        const passwordField = document.getElementById(id);
+        const toggleIcon = document.getElementById('togglePasswordIcon' + (id === 'password' ? '1' : '2'));
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+    }
+</script>
+</body>
+</html>

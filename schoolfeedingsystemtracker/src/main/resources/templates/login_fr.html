@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{login.title}">Se connecter</title>
+    <!-- Include your styles -->
+</head>
+<body>
+<h1 th:text="#{login.title}">Page de connexion</h1>
+
+<form action="/login" method="post">
+    <label for="username" th:text="#{login.username}">Nom d'utilisateur :</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password" th:text="#{login.password}">Mot de passe :</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit" th:text="#{login.submit}">Se connecter</button>
+</form>
+
+<!-- Language Selection Form -->
+<form method="get" th:action="@{/login}" class="language-select-form">
+    <select name="lang" onchange="this.form.submit()">
+        <option value="en" th:selected="${#locale.language == 'en'}">English</option>
+        <option value="fr" th:selected="${#locale.language == 'fr'}">Français</option>
+        <option value="rw" th:selected="${#locale.language == 'rw'}">Kinyarwanda</option>
+    </select>
+</form>
+</body>
+</html>
